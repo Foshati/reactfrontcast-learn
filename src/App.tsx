@@ -1,7 +1,10 @@
+import UserList from "./components/UserList";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <>
+      <UserList   userName="ali" email="ali@gmail.com" />
+      <UserList   userName="reza" email="reza@gmail.com" />
+    </>
+  );
 }
