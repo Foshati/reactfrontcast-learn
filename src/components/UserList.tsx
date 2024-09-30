@@ -1,17 +1,8 @@
-// import { type ReactNode } from "react";
+import { type FC, type PropsWithChildren } from "react";
 
-import { PropsWithChildren } from "react";
+type UserListProps = PropsWithChildren<{ userName: string; email: string }>;
 
-// type UserListProps = {
-//   userName: string;
-//   email: string;
-//   children: ReactNode
-// };
-
-
-type UserListProps =PropsWithChildren<{userName:string, email:string}>
-
-export default function UserList({ userName, email , children}: UserListProps) {
+const UserList: FC<UserListProps> = ({ userName, email, children }) => {
   return (
     <div>
       <div>
@@ -21,4 +12,6 @@ export default function UserList({ userName, email , children}: UserListProps) {
       </div>
     </div>
   );
-}
+};
+
+export default UserList;
