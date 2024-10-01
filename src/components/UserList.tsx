@@ -1,17 +1,20 @@
-import { type FC, type PropsWithChildren } from "react";
 
-type UserListProps = PropsWithChildren<{ userName: string; email: string }>;
+import { UserPrprs } from "../App";
+import UserItem from "./UserItem";
 
-const UserList: FC<UserListProps> = ({ userName, email, children }) => {
+
+type UserListProps ={
+    Users:  UserPrprs[]
+}
+
+export default function UserList({ Users }:UserListProps) {
   return (
     <div>
-      <div>
-        <p>{userName}</p>
-        <p>{email}</p>
-        <p>{children}</p>
-      </div>
+      {Users.map((user) => (
+        <div key={user.id}>
+          <UserItem userName={user.username} email={user.email} />
+        </div>
+      ))}
     </div>
   );
-};
-
-export default UserList;
+}

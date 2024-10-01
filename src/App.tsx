@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserList from "./components/UserList";
 
-type UserPrprs = {
+export type UserPrprs = {
   username: string;
   email: string;
   id: number;
@@ -27,12 +27,7 @@ export default function App() {
       <button className="btn" onClick={handleAddUser}>
         add user
       </button>
-
-      {Users.map((user) => (
-        <div key={user.id}>
-          <UserList userName={user.username} email={user.email} />
-        </div>
-      ))}
+      <UserList Users={Users} />
     </>
   );
 }
