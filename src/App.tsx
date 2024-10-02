@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserList from "./components/UserList";
+import AddUser from "./components/AddUser";
 
 export type UserPrprs = {
   username: string;
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <>
+    <AddUser/>
       <button className="btn" onClick={handleAddUser}>
         add user
       </button>
