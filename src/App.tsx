@@ -22,12 +22,16 @@ export default function App() {
     });
   }
 
+  function handleRemoveUser(id: number) {
+    setUsers((prevUser) => prevUser.filter((item) => item.id !== id));
+  }
+
   return (
     <>
       <button className="btn" onClick={handleAddUser}>
         add user
       </button>
-      <UserList Users={Users} />
+      <UserList Users={Users}  handleRemoveUser={handleRemoveUser}/>
     </>
   );
 }
