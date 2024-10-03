@@ -1,13 +1,14 @@
-import { type FormEvent } from "react";
+import { useRef, type FormEvent } from "react";
 
 export default function AddUser() {
+  const userName = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+
   function handleSubmitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const username = formData.get("userName");
-    const email = formData.get("email");
-    console.log(username, email);
+    const newUserName = userName.current!.value;
+    const newEmail = email.current!.value;
+    console.log(newUserName, newEmail);
   }
 
   return (
@@ -20,14 +21,14 @@ export default function AddUser() {
           type="text"
           placeholder="username"
           id="userName"
-          name="userName"
+          ref={userName}
           className="input bg-black"
         />
         <input
           type="text"
           placeholder="email"
           id="email"
-          name="email"
+          ref={email}
           className="input bg-black"
         />
         <button className="btn" type="submit">
