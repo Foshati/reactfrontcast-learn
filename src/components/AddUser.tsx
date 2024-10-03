@@ -1,6 +1,10 @@
 import { useRef, type FormEvent } from "react";
 
-export default function AddUser() {
+type onAddUserProps = {
+  onAddUser: (username: string, email: string) => void;
+};
+
+export default function AddUser({ onAddUser }: onAddUserProps) {
   const userName = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
 
@@ -8,7 +12,9 @@ export default function AddUser() {
     event.preventDefault();
     const newUserName = userName.current!.value;
     const newEmail = email.current!.value;
-    console.log(newUserName, newEmail);
+    // console.log(newUserName, newEmail);
+    event.currentTarget.reset();
+    onAddUser(newUserName, newEmail);
   }
 
   return (

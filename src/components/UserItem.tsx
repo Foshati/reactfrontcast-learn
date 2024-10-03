@@ -5,7 +5,7 @@ type UserListProps = PropsWithChildren<{ userName: string; email: string; id:num
 export default function UserItem({ userName, email, children ,handleRemoveUser, id}: UserListProps) {
   return (
     <div>
-      <div className="m-4 p-4">
+      <div className="flex gap-4 m-4 p-8 card bg-black ">
         <p>{userName}</p>
         <p>{email}</p>
         <p>{children}</p>

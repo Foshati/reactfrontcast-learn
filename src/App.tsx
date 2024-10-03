@@ -11,11 +11,11 @@ export type UserPrprs = {
 export default function App() {
   const [Users, setUsers] = useState<UserPrprs[]>([]);
 
-  function handleAddUser() {
+  function handleAddUser(username: string, email: string) {
     setUsers((prevUser) => {
       const newUser: UserPrprs = {
-        username: "ali",
-        email: "ali@gmail.com",
+        username,
+        email,
         id: Math.random(),
       };
 
@@ -29,11 +29,11 @@ export default function App() {
 
   return (
     <>
-    <AddUser/>
-      <button className="btn" onClick={handleAddUser}>
+      <AddUser onAddUser={handleAddUser} />
+      {/*     <button className="btn" onClick={handleAddUser}>
         add user
-      </button>
-      <UserList Users={Users}  handleRemoveUser={handleRemoveUser}/>
+      </button> */}
+      <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
     </>
   );
 }

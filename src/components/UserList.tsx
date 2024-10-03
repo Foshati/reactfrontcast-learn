@@ -10,7 +10,7 @@ type UserListProps ={
 
 export default function UserList({ Users , handleRemoveUser }:UserListProps) {
   return (
-    <div>
+    <div className="flex flex-wrap">
       {Users.map((user) => (
         <div key={user.id}>
           <UserItem userName={user.username} email={user.email}  handleRemoveUser={handleRemoveUser} id={user.id}/>
