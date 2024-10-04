@@ -2,6 +2,7 @@ import { useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 import Input from "./components/Input";
+import Button from "./components/Button";
 
 export type UserPrprs = {
   username: string;
@@ -45,6 +46,17 @@ export default function App() {
 
       <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
       <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
+      <div>
+        <p>
+          <Button element="button">click</Button>
+        </p>
+
+        <p>
+          <Button element="anchor" href="https://google.com">
+            google
+          </Button>
+        </p>
+      </div>
     </>
   );
 }
