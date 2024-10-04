@@ -10,9 +10,17 @@ export type UserPrprs = {
 
 export default function App() {
   const [Users, setUsers] = useState<UserPrprs[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   function handleAddUser(username: string, email: string) {
     setUsers((prevUser) => {
+      if (prevUser.length >= 3) {
+        // throw new Error("user limit reached");
+        const errorMsg = "Cannot add more than 3 users";
+        setError(errorMsg);
+        return prevUser;
+      }
+
       const newUser: UserPrprs = {
         username,
         email,
@@ -30,9 +38,11 @@ export default function App() {
   return (
     <>
       <AddUser onAddUser={handleAddUser} />
-      {/*     <button className="btn" onClick={handleAddUser}>
+      {/* <button className="btn" onClick={handleAddUser}>
         add user
       </button> */}
+
+      <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
       <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
     </>
   );
