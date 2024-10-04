@@ -48,13 +48,11 @@ export default function App() {
       <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
       <div>
         <p>
-          <Button element="button">click</Button>
+          <Button>click</Button>
         </p>
 
         <p>
-          <Button element="anchor" href="https://google.com">
-            google
-          </Button>
+          <Button href="https://google.com">google</Button>
         </p>
       </div>
     </>
