@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
+import Input from "./components/Input";
 
 export type UserPrprs = {
   username: string;
