@@ -3,6 +3,7 @@ import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import Container from "./components/Container";
 
 export type UserPrprs = {
   username: string;
@@ -51,9 +52,7 @@ export default function App() {
           <Button>click</Button>
         </p>
 
-        <p>
-          <Button href="https://google.com">google</Button>
-        </p>
+        <Container ComponentName={Input} />
       </div>
     </>
   );
