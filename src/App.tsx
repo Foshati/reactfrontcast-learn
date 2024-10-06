@@ -1,7 +1,6 @@
 import { useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
-import Input from "./components/Input";
 import Button from "./components/Button";
 import Container from "./components/Container";
 
@@ -51,8 +50,9 @@ export default function App() {
         <p>
           <Button>click</Button>
         </p>
-
-        <Container ComponentName={Input} />
+        <Container ComponentName={Button} onClick={() => console.log("hi ali")}>
+          add user
+        </Container>
       </div>
     </>
   );
