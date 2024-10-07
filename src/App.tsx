@@ -4,6 +4,7 @@ import AddUser from "./components/AddUser";
 import Button from "./components/Button";
 import Container from "./components/Container";
 import Input from "./components/Input";
+import Form from "./components/Form";
 
 export type UserPrprs = {
   username: string;
@@ -57,7 +58,11 @@ export default function App() {
           add user
         </Container>
 
-        <Input placeholder="title" id="title" ref={addInput} />
+        <Form>
+          <Input placeholder="title" id="title" />
+          <Input placeholder="title" id="title" />
+          <button>add product</button>
+        </Form>
       </div>
     </>
   );
