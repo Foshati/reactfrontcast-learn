@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 import Button from "./components/Button";
 import Container from "./components/Container";
+import Input from "./components/Input";
 
 export type UserPrprs = {
   username: string;
@@ -13,6 +14,8 @@ export type UserPrprs = {
 export default function App() {
   const [Users, setUsers] = useState<UserPrprs[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const addInput = useRef<HTMLInputElement>(null);
 
   function handleAddUser(username: string, email: string) {
     setUsers((prevUser) => {
@@ -53,6 +56,8 @@ export default function App() {
         <Container ComponentName={Button} onClick={() => console.log("hi ali")}>
           add user
         </Container>
+
+        <Input placeholder="title" id="title" ref={addInput} />
       </div>
     </>
   );
