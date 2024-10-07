@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 import Button from "./components/Button";
@@ -15,8 +15,6 @@ export type UserPrprs = {
 export default function App() {
   const [Users, setUsers] = useState<UserPrprs[]>([]);
   const [error, setError] = useState<string | null>(null);
-
-  const addInput = useRef<HTMLInputElement>(null);
 
   function handleAddUser(username: string, email: string) {
     setUsers((prevUser) => {
@@ -41,6 +39,10 @@ export default function App() {
     setUsers((prevUser) => prevUser.filter((item) => item.id !== id));
   }
 
+  function handleSave(event: unknown) {
+    const data = event as { title: string; name: string };
+    console.log(data);
+  }
   return (
     <>
       <AddUser onAddUser={handleAddUser} />
@@ -58,10 +60,10 @@ export default function App() {
           add user
         </Container>
 
-        <Form>
+        <Form onSave={handleSave}>
           <Input placeholder="title" id="title" />
-          <Input placeholder="title" id="title" />
-          <button>add product</button>
+          <Input placeholder="name" id="name" />
+          <Button>add name</Button>
         </Form>
       </div>
     </>
