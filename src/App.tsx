@@ -1,10 +1,8 @@
 import { useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
-import Button from "./components/Button";
-import Container from "./components/Container";
-import Input from "./components/Input";
-import Form from "./components/Form";
+
+import AddTime from "./components/AddTime";
 
 export type UserPrprs = {
   username: string;
@@ -39,10 +37,6 @@ export default function App() {
     setUsers((prevUser) => prevUser.filter((item) => item.id !== id));
   }
 
-  function handleSave(event: unknown) {
-    const data = event as { title: string; name: string };
-    console.log(data);
-  }
   return (
     <>
       <AddUser onAddUser={handleAddUser} />
@@ -52,19 +46,8 @@ export default function App() {
 
       <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
       <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
-      <div>
-        <p>
-          <Button>click</Button>
-        </p>
-        <Container ComponentName={Button} onClick={() => console.log("hi ali")}>
-          add user
-        </Container>
-
-        <Form onSave={handleSave}>
-          <Input placeholder="title" id="title" />
-          <Input placeholder="name" id="name" />
-          <Button>add name</Button>
-        </Form>
+      <div className="flex flex-col justify-center items-center ">
+        <AddTime />
       </div>
     </>
   );
