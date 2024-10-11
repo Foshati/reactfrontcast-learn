@@ -20,7 +20,7 @@ type TimersContextProviderProps = {
   children: ReactNode;
 };
 
-const TimersContext = createContext<TimersContextValue | null>(null);
+export const TimersContext = createContext<TimersContextValue | null>(null);
 
 export default function TimersContextProvider({
   children,
@@ -28,7 +28,7 @@ export default function TimersContextProvider({
   const TimersContextValu: TimersContextValue = {
     isRunning: false,
     timers: [],
-    addTimers: (TimerData) => {},
+    addTimers: (TimerData)  {},
     startTimers() {},
     stopTimers() {},
   };

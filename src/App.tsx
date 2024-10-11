@@ -3,6 +3,7 @@ import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 
 import AddTime from "./components/AddTime";
+import TimersContextProvider from "./store/TimeContext";
 
 export type UserPrprs = {
   username: string;
@@ -39,16 +40,18 @@ export default function App() {
 
   return (
     <>
-      <AddUser onAddUser={handleAddUser} />
-      {/* <button className="btn" onClick={handleAddUser}>
+      <TimersContextProvider>
+        <AddUser onAddUser={handleAddUser} />
+        {/* <button className="btn" onClick={handleAddUser}>
         add user
       </button> */}
 
-      <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
-      <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
-      <div className="flex flex-col justify-center items-center ">
-        <AddTime />
-      </div>
+        <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
+        <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
+        <div className="flex flex-col justify-center items-center ">
+          <AddTime />
+        </div>
+      </TimersContextProvider>
     </>
   );
 }
