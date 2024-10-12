@@ -4,6 +4,7 @@ import AddUser from "./components/AddUser";
 
 import AddTime from "./components/AddTime";
 import TimersContextProvider from "./store/TimeContext";
+import TimerControl from "./components/TimerControl";
 
 export type UserPrprs = {
   username: string;
@@ -50,6 +51,7 @@ export default function App() {
         <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
         <div className="flex flex-col justify-center items-center ">
           <AddTime />
+          <TimerControl/>
         </div>
       </TimersContextProvider>
     </>

@@ -1,12 +1,11 @@
-import { useContext } from "react";
+import { useTimersContext } from "../hooks/useTimersContext";
 import Button from "./Button";
-import { TimersContext } from "../store/TimeContext";
 
 export default function TimerControl() {
-   const TimersContextCtx= useContext(TimersContext)
+  const timersCtx = useTimersContext();
   return (
     <div>
-      <Button>add timers</Button>
+      <Button>{timersCtx.isRunning ? "stop" : "start"}</Button>
     </div>
   );
 }
