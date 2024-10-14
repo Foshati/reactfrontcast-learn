@@ -5,7 +5,8 @@ import AddUser from "./components/AddUser";
 import AddTime from "./components/AddTime";
 import TimersContextProvider from "./store/TimeContext";
 import TimerControl from "./components/TimerControl";
-import Modal from "./components/Modal";
+// import Modal from "./components/Modal";
+import TimerList from "./components/TimerList";
 
 export type UserPrprs = {
   username: string;
@@ -53,8 +54,9 @@ export default function App() {
         <div className="flex flex-col justify-center items-center ">
           <AddTime />
           <TimerControl/>
+          <TimerList/>
         </div>
-        <Modal/>
+        {/* <Modal/> */}
       </TimersContextProvider>
     </>
   );
