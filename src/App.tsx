@@ -5,6 +5,7 @@ import AddUser from "./components/AddUser";
 import AddTime from "./components/AddTime";
 import TimersContextProvider from "./store/TimeContext";
 import TimerControl from "./components/TimerControl";
+import Modal from "./components/Modal";
 
 export type UserPrprs = {
   username: string;
@@ -53,6 +54,7 @@ export default function App() {
           <AddTime />
           <TimerControl/>
         </div>
+        <Modal/>
       </TimersContextProvider>
     </>
   );
