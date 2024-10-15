@@ -7,7 +7,7 @@ export default function Modal() {
   }
   return (
     <div>
-      <button className="btn" onClick={handleShow}>{show ? "hide":"show"}</button>
+      <button className="btn bg-black" onClick={handleShow}>{show ? "hide":"show"}</button>
       {show && <p>samfa</p>}
     </div>
   );

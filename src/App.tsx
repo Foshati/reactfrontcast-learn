@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserList from "./components/UserList";
 import AddUser from "./components/AddUser";
 
 import AddTime from "./components/AddTime";
 import TimersContextProvider from "./store/TimeContext";
 import TimerControl from "./components/TimerControl";
-// import Modal from "./components/Modal";
+import Modal from "./components/Modal";
 import TimerList from "./components/TimerList";
 import PostList from "./components/PostList";
+import { get } from "./utils/fetch";
+import TodosList from "./components/TodosList";
+
 
 export type UserPrprs = {
   username: string;
@@ -42,6 +45,20 @@ export default function App() {
     setUsers((prevUser) => prevUser.filter((item) => item.id !== id));
   }
 
+ 
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedData = await get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      setData(fetchedData.slice(0,5));
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <TimersContextProvider>
@@ -60,10 +77,20 @@ export default function App() {
           <TimerControl />
           <TimerList />
         </div>
-        {/* <Modal/> */}
-        <div className="divider my-4">PostList </div>
+        <div className="divider my-4">Modal </div>
 
+        <Modal/>
+        <div className="divider my-4">PostList </div>
         <PostList />
+
+        <div className="divider my-4">TodosList </div>
+        <div>
+          {data.map((item) => (
+            <div >
+              <TodosList data={[item]} />
+            </div>
+          ))}
+        </div>
       </TimersContextProvider>
     </>
   );

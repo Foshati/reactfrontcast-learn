@@ -13,10 +13,10 @@ export default function PostList() {
   const fetchData = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await response.json();
-    if (!data.ok) {
+    if (!data) {
       throw new Error("not data");
     }
-    setData(data);
+    setData(data.slice(0,5));
   };
 
   useEffect(() => {
