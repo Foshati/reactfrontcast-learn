@@ -6,11 +6,12 @@ export default function TimerControl() {
   return (
     <div>
       <Button
+      className="btn"
         onClick={
-          timersCtx.isRunning ? timersCtx.stopTimers : timersCtx.stopTimers
+            timersCtx.isRunning ? timersCtx.stopTimers : timersCtx.startTimers
         }
       >
-        {timersCtx.isRunning ? "stop " : "start"} timers
+        {timersCtx.isRunning ? "stop " : "start"}
       </Button>
     </div>
   );

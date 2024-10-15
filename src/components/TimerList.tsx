@@ -7,8 +7,9 @@ export default function TimerList() {
     <div>
       <ul>
         {timers.map((item) => (
-          <li key={item.name}>
-            <Timer {...item} />
+          <li className="card bg-black w-48 p-4 m-4" key={item.name}>
+            <Timer  {...item} />
+            {/* <Timer name={item.name} duration={item.duration} /> */}
           </li>
         ))}
       </ul>

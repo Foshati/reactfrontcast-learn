@@ -44,6 +44,8 @@ export default function App() {
   return (
     <>
       <TimersContextProvider>
+      <div className="divider my-4">Add User </div>
+
         <AddUser onAddUser={handleAddUser} />
         {/* <button className="btn" onClick={handleAddUser}>
         add user
@@ -51,10 +53,11 @@ export default function App() {
 
         <div>{error && <p className="text-red-500 mx-6">{error}</p>}</div>
         <UserList Users={Users} handleRemoveUser={handleRemoveUser} />
+        <div className="divider my-4">Timer </div>
         <div className="flex flex-col justify-center items-center ">
           <AddTime />
-          <TimerControl/>
-          <TimerList/>
+          <TimerControl />
+          <TimerList />
         </div>
         {/* <Modal/> */}
       </TimersContextProvider>

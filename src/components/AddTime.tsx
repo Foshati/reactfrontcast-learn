@@ -12,15 +12,15 @@ export default function AddTime() {
     addTimers({ name: data.name, duration: data.duration });
   }
   return (
-    <div>
-      <Form onSave={handleSave}>
+    <div  >
+      <Form onSave={handleSave} className="flex flex-col justify-center items-center gap-4">
         <Input className="input bg-black" placeholder="name" id="name" />
         <Input
           className="input bg-black"
           placeholder="duration"
           id="duration"
         />
-        <Button className="btn">add name</Button>
+        <Button className="btn m-4">Add time</Button>
       </Form>
     </div>
   );
