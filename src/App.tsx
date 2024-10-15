@@ -7,6 +7,7 @@ import TimersContextProvider from "./store/TimeContext";
 import TimerControl from "./components/TimerControl";
 // import Modal from "./components/Modal";
 import TimerList from "./components/TimerList";
+import PostList from "./components/PostList";
 
 export type UserPrprs = {
   username: string;
@@ -44,7 +45,7 @@ export default function App() {
   return (
     <>
       <TimersContextProvider>
-      <div className="divider my-4">Add User </div>
+        <div className="divider my-4">Add User </div>
 
         <AddUser onAddUser={handleAddUser} />
         {/* <button className="btn" onClick={handleAddUser}>
@@ -60,6 +61,9 @@ export default function App() {
           <TimerList />
         </div>
         {/* <Modal/> */}
+        <div className="divider my-4">PostList </div>
+
+        <PostList />
       </TimersContextProvider>
     </>
   );

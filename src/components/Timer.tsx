@@ -23,7 +23,7 @@ export default function Timer({ name, duration }: timerProps) {
     }
 
     return () => {
-      if (timer) clearInterval(timer);
+      if (timer) {clearInterval(timer);}
     };
   }, [isRunning]);
 
@@ -31,7 +31,7 @@ export default function Timer({ name, duration }: timerProps) {
 
   return (
     <div>
-      <p>{name}</p>
+      <h2>{name}</h2>
       <p>{formattedRemainingTime}</p>
     </div>
   );
